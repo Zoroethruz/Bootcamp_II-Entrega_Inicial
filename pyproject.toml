@@ -1,5 +1,5 @@
 [project]
-name = "gastosapp"
+name = "Bootcamp_II-Entrega_Inicial"
 version = "1.0.0"
 description = "Gerenciador de gastos pessoais via CLI"
 requires-python = ">=3.10"
