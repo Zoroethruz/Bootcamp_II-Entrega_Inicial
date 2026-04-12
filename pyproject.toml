@@ -1,0 +1,19 @@
+[project]
+name = "gastosapp"
+version = "1.0.0"
+description = "Gerenciador de gastos pessoais via CLI"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
