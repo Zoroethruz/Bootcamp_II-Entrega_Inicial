@@ -42,11 +42,10 @@ def remover_gasto(gastos, id_remover):
 
 def ver_resumo(gastos):
     if not gastos:
-        print("Nenhum gasto")
+        print("\nNenhum gasto registrado.")
         return
-    
-    total = sum(gasto["valor"] for gasto in gastos)
-    print(f"Total de gastos: {total:.2f}")
+    total = sum(g["valor"] for g in gastos)
+    print(f"\nTotal de gastos: R$ {total:.2f}")
     print(f"Quantidade: {len(gastos)}")
 
 def main():
