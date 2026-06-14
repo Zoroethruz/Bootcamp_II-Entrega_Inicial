@@ -5,20 +5,22 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from supabase import create_client
 
+SUPABASE_URL = "https://yvhtnuapimynveijasdb.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2aHRudWFwaW15bnZlaWphc2RiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NTE5NjgsImV4cCI6MjA5NzAyNzk2OH0.Qh7q-T0HZgb2zjFYd4aBm-fd0IFiE1mbDtFPdGPrGkI"
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
 ARQUIVO = "gastos.json"
 VALOR_MAXIMO = Decimal("126000000000000.00")  # 126 trilhoes, mais que o PIB mundial... eu acho que n precisa que mais kkkk
 
 
 def carregar_gastos():
-    if not os.path.exists(ARQUIVO):
+    try:
+        resposta = supabase.table("gastos").select("*").order("id").execute()
+        return resposta.data
+    except Exception as e:
+        print(f"Erro ao carregar gastos: {e}")
         return []
-    with open(ARQUIVO, "r") as f:
-        try:
-            dados = json.load(f)
-        except json.JSONDecodeError:
-            print("Aviso: arquivo de gastos corrompido ou vazio. Iniciando com lista vazia.")
-            return []
-
+        
     gastos_validos = []
     ignorados = 0
     for g in dados:
@@ -37,9 +39,12 @@ def carregar_gastos():
     return gastos_validos
 
 
-def salvar_gastos(gastos):
-    with open(ARQUIVO, "w") as f:
-        json.dump(gastos, f, indent=2)
+def inserir_gasto(gasto):
+    supabase.table("gastos").insert(gasto).execute()
+
+
+def deletar_gasto(id_remover):
+    supabase.table("gastos").delete().eq("id", id_remover).execute()
 
 
 def valor_para_decimal(gastos_entry):
@@ -76,17 +81,15 @@ def adicionar_gasto(gastos, descricao, valor, categoria):
     if erro:
         return False, erro
 
-    novo_id = max((g["id"] for g in gastos), default=0) + 1
-
+    
     novo = {
-        "id": novo_id,
         "descricao": descricao,
         "valor": str(valor_decimal),   # salvo como string para preservar precisão
         "categoria": categoria,
         "data": str(date.today()),
     }
     gastos.append(novo)
-    salvar_gastos(gastos)
+    inserir_gasto(novo)
     return True, None
 
 
