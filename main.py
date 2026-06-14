@@ -151,7 +151,7 @@ def ver_resumo_em_dolar(gastos):
 
 def main():
     while True:
-    gastos = carregar_gastos()
+        gastos = carregar_gastos()
 
     while True:
         print("\n Gerenciador de Gastos")
