@@ -5,10 +5,6 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from supabase import create_client
 
-SUPABASE_URL = "https://yvhtnuapimynveijasdb.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2aHRudWFwaW15bnZlaWphc2RiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NTE5NjgsImV4cCI6MjA5NzAyNzk2OH0.Qh7q-T0HZgb2zjFYd4aBm-fd0IFiE1mbDtFPdGPrGkI"
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-
 ARQUIVO = "gastos.json"
 VALOR_MAXIMO = Decimal("126000000000000.00")  # 126 trilhoes, mais que o PIB mundial... eu acho que n precisa que mais kkkk
 
