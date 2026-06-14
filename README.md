@@ -68,7 +68,7 @@ Por se tratar de uma aplicação CLI, não há uma URL de acesso web. Para execu
 
 ## Versão Atual
 
-1.1.0
+1.1.1
 
 ## Autor
 
