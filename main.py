@@ -107,7 +107,7 @@ def remover_gasto(gastos, id_remover):
     for g in gastos:
         if g["id"] == id_remover:
             gastos.remove(g)
-            salvar_gastos(gastos)
+            deletar_gasto(id_remover)
             return True
     return False
 
@@ -150,6 +150,7 @@ def ver_resumo_em_dolar(gastos):
 
 
 def main():
+    while True:
     gastos = carregar_gastos()
 
     while True:
