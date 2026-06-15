@@ -80,8 +80,8 @@ Por se tratar de uma aplicação CLI, não há uma URL de acesso web. Para execu
 
 ## Autor
 
-João Guilherme Rangel do Nascimento
-Guilherme Ribeiro da Paula
+= João Guilherme Rangel do Nascimento
+= Guilherme Ribeiro da Paula
 
 ## Repositório
 
