@@ -68,12 +68,13 @@ Por se tratar de uma aplicação CLI, não há uma URL de acesso web. Para execu
 
 ## Versão Atual
 
-1.1.0
+1.2.1
 
 ## Autor
 
 João Guilherme Rangel do Nascimento
+Guilherme Ribeiro de Paula
 
 ## Repositório
 
-<https://github.com/Zoroethruz/Bootcamp_II-Entrega_Inicial>
+<https://github.com/Zoroethruz/Bootcamp_II-Entrega_Inicial> 
