@@ -28,6 +28,7 @@ Pessoas que querem começar a controlar suas finanças pessoais de forma simples
 - pytest (testes)
 - Ruff (lint)
 - GitHub Actions (CI)
+- Supabase (banco de dados em nuvem)
 
 ## Instruções de Instalação
 
@@ -36,6 +37,13 @@ Certifique-se de ter o Python 3.11 ou superior instalado. Depois, clone o reposi
 ```
 git clone https://github.com/Zoroethruz/Bootcamp_II-Entrega_Inicial.git
 cd Bootcamp_II-Entrega_Inicial
+```
+
+Instale o Supabase
+
+```
+pip install Supabase
+
 ```
 
 Instale as dependências de desenvolvimento:
@@ -68,11 +76,12 @@ Por se tratar de uma aplicação CLI, não há uma URL de acesso web. Para execu
 
 ## Versão Atual
 
-1.1.1
+1.2.1
 
 ## Autor
 
 João Guilherme Rangel do Nascimento
+Guilherme Ribeiro da Paula
 
 ## Repositório
 
