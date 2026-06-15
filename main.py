@@ -184,3 +184,6 @@ def main():
             break
         else:
             print("Opcao invalida. Escolha um numero do menu.")
+
+if __name__ == "__main__":
+    main()
