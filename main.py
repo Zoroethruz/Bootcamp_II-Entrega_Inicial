@@ -21,23 +21,6 @@ def carregar_gastos():
         print(f"Erro ao carregar gastos: {e}")
         return []
         
-    gastos_validos = []
-    ignorados = 0
-    for g in dados:
-        try:
-            valor = Decimal(str(g["valor"]))
-            if valor <= 0 or valor > VALOR_MAXIMO:
-                raise InvalidOperation
-            g["valor"] = str(valor.quantize(Decimal("0.01")))
-            gastos_validos.append(g)
-        except InvalidOperation:
-            ignorados += 1
-
-    if ignorados:
-        print(f"Aviso: {ignorados} gasto(s) com valor invalido foram ignorados ao carregar o arquivo.")
-
-    return gastos_validos
-
 
 def inserir_gasto(gasto):
     supabase.table("gastos").insert(gasto).execute()
@@ -153,7 +136,6 @@ def main():
     while True:
         gastos = carregar_gastos()
 
-    while True:
         print("\n Gerenciador de Gastos")
         print("1 - Adicionar gasto")
         print("2 - Listar gastos")
@@ -162,6 +144,7 @@ def main():
         print("5 - Ver total em dolar")
         print("0 - Sair")
         opcao = input("\nEscolha: ")
+        
         if opcao == "1":
             descricao = input("Descricao: ").strip()
             if not descricao:
